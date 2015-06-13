@@ -1,7 +1,7 @@
 # EasyCrontab
 Object oriented API for reading and writing to/from crontab.
 
-![Trevis build](https://api.travis-ci.org/taueres/easy-crontab.svg?branch=master)
+[![Build Status](https://travis-ci.org/taueres/easy-crontab.svg?branch=master)](https://travis-ci.org/taueres/easy-crontab)
 
 ## Examples
 EasyCrontab is very easy to grasp.
