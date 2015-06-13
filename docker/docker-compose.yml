@@ -1,0 +1,5 @@
+easycrontab:
+    build: .
+    command: php /root/easy-crontab/main.php
+    volumes:
+      - ..:/root/easy-crontab

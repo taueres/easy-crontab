@@ -1,0 +1,22 @@
+{
+    "name": "taueres/easy-crontab",
+    "description": "Object oriented API for reading and writing crontab",
+    "type": "library",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Sergio Santoro",
+            "email": "santoro.srg@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+      "psr-4": { "EasyCrontab\\": "src/EasyCrontab" }
+    },
+    "require": {
+        "symfony/process": "^2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
+    }
+}
