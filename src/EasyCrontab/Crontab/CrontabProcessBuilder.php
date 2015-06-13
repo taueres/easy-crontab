@@ -27,7 +27,7 @@ class CrontabProcessBuilder
     {
         return $this
             ->processBuilder
-            ->create(['crontab', '-l'])
+            ->create(array('crontab', '-l'))
             ->getProcess();
     }
 
@@ -38,7 +38,7 @@ class CrontabProcessBuilder
     {
         return $this
             ->processBuilder
-            ->create(['crontab', '-'])
+            ->create(array('crontab', '-'))
             ->getProcess();
     }
 }
