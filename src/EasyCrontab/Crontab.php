@@ -55,12 +55,20 @@ class Crontab
     /**
      * @return array|Job[]
      */
-    public function getJobs()
+    public function getJobsIdentified()
     {
         if (null === $this->jobs) {
             $this->load();
         }
         return $this->jobs;
+    }
+
+    /**
+     * @return array|Job[]
+     */
+    public function getJobs()
+    {
+        return array_values($this->getJobsIdentified());
     }
 
     public function clear()
@@ -94,7 +102,7 @@ class Crontab
     public function addJob(Job $job)
     {
         $id = $job->getId();
-        if (array_key_exists($id, $this->getJobs())) {
+        if (array_key_exists($id, $this->getJobsIdentified())) {
             throw CrontabException::jobAlreadyExists($job);
         }
         $this->jobs[$id] = $job;
@@ -107,7 +115,7 @@ class Crontab
      */
     public function removeById($id)
     {
-        if ( ! array_key_exists($id, $this->getJobs())) {
+        if ( ! array_key_exists($id, $this->getJobsIdentified())) {
             throw CrontabException::jobDoesNotExistById($id);
         }
         unset($this->jobs[$id]);

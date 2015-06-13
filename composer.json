@@ -11,7 +11,10 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-      "psr-4": { "EasyCrontab\\": "src/EasyCrontab" }
+      "psr-4": {
+        "EasyCrontab\\": "src/EasyCrontab",
+        "EasyCrontab\\Test\\": "test"
+      }
     },
     "require": {
         "symfony/process": "^2.7"
