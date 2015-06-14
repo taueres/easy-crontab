@@ -3,6 +3,25 @@ Object oriented API for reading and writing to/from crontab.
 
 [![Build Status](https://travis-ci.org/taueres/easy-crontab.svg?branch=master)](https://travis-ci.org/taueres/easy-crontab)
 
+## Installing
+### Via Composer
+```
+composer require taueres/easy-crontab
+```
+
+### Otherwise manually
+Clone git repository.
+```
+git clone https://github.com/taueres/easy-crontab.git ./vendor/easy-crontab
+```
+Add the following PSR-4 rules to your autoload system.
+```
+"psr-4": {
+    "EasyCrontab\\": "vendor/easy-crontab/src/EasyCrontab",
+    "EasyCrontab\\Test\\": "vendor/easy-crontab/test"
+}
+```
+
 ## Examples
 EasyCrontab is very easy to grasp.
 
