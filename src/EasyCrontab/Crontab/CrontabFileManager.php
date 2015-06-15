@@ -8,6 +8,21 @@ use Symfony\Component\Process\ProcessBuilder;
 class CrontabFileManager
 {
     /**
+     * @var CrontabProcessBuilder
+     */
+    private $crontabProcessBuilder;
+
+    /**
+     * @var CrontabParser
+     */
+    private $crontabParser;
+
+    /**
+     * @var CrontabDumper
+     */
+    private $crontabDumper;
+
+    /**
      * @param CrontabProcessBuilder $crontabProcessBuilder
      * @param CrontabParser $crontabParser
      * @param CrontabDumper $crontabDumper
