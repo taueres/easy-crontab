@@ -26,6 +26,8 @@ class Crontab
     }
 
     /**
+     * Create new instance of Crontab with default dependencies
+     *
      * @return Crontab
      */
     public static function create()
@@ -34,6 +36,10 @@ class Crontab
         return new self($fileManager);
     }
 
+    /**
+     * Load job collection from crontab system file
+     * Warning! Job list will be overwritten
+     */
     public function load()
     {
         $this->setJobs(
@@ -41,6 +47,9 @@ class Crontab
         );
     }
 
+    /**
+     * Save current collection of jobs to crontab system file
+     */
     public function save()
     {
         if (null === $this->jobs) {
@@ -53,6 +62,8 @@ class Crontab
     }
 
     /**
+     * Get array of jobs, keys contain job identifiers
+     *
      * @return array|Job[]
      */
     public function getJobsIdentified()
@@ -64,6 +75,8 @@ class Crontab
     }
 
     /**
+     * Get array of jobs (numeric indexed array)
+     *
      * @return array|Job[]
      */
     public function getJobs()
@@ -71,12 +84,17 @@ class Crontab
         return array_values($this->getJobsIdentified());
     }
 
+    /**
+     * Remove any job registered in the crontab
+     */
     public function clear()
     {
         $this->jobs = array();
     }
 
     /**
+     * Overwrite the job collection with the given one
+     *
      * @param array|Job[] $jobs
      */
     public function setJobs(array $jobs)
@@ -86,6 +104,8 @@ class Crontab
     }
 
     /**
+     * Append the given jobs to the collection of the crontab
+     *
      * @param array|Job[] $jobs
      */
     public function addJobs(array $jobs)
@@ -96,6 +116,8 @@ class Crontab
     }
 
     /**
+     * Add the given job to the crontab
+     *
      * @param Job $job
      * @return string
      */
@@ -111,6 +133,9 @@ class Crontab
     }
 
     /**
+     * Remove the job with the given identifier from the collection
+     * CrontabException will be thrown if the job does not exist
+     *
      * @param string $id
      */
     public function removeById($id)
@@ -122,6 +147,9 @@ class Crontab
     }
 
     /**
+     * Remove the given job from the crontab
+     * CrontabException will be thrown if the job does not exist
+     *
      * @param Job $job
      */
     public function removeJob(Job $job)
