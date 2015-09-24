@@ -77,12 +77,6 @@ class CrontabTest extends PHPUnit_Framework_TestCase
         $crontab->save();
     }
 
-    public function testCreate()
-    {
-        $crontab = Crontab::create();
-        $this->assertTrue($crontab instanceof Crontab);
-    }
-
     /*
      * ------- PRIVATE
      */

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="crontab" class="EasyCrontab\Crontab">
+            <argument type="service" id="file_manager" />
+        </service>
+
+        <service id="file_manager" class="EasyCrontab\Crontab\CrontabFileManager">
+            <argument type="service" id="process_builder" />
+            <argument type="service" id="job_parser" />
+            <argument type="service" id="job_dumper" />
+        </service>
+
+        <service id="job_parser" class="EasyCrontab\Crontab\CrontabParser" />
+
+        <service id="job_dumper" class="EasyCrontab\Crontab\CrontabDumper" />
+
+        <service id="process_builder" class="EasyCrontab\Crontab\CrontabProcessBuilder">
+            <argument type="service" id="symfony_process_builder" />
+        </service>
+
+        <service id="symfony_process_builder" class="Symfony\Component\Process\ProcessBuilder" />
+
+    </services>
+
+</container>

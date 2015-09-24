@@ -35,17 +35,6 @@ class CrontabFileManager
     }
 
     /**
-     * @return CrontabFileManager
-     */
-    public static function create()
-    {
-        $crontabProcessBuilder = new CrontabProcessBuilder(new ProcessBuilder());
-        $crontabParser = new CrontabParser();
-        $crontabDumper = new CrontabDumper();
-        return new self($crontabProcessBuilder, $crontabParser, $crontabDumper);
-    }
-
-    /**
      * @return array|Job[]
      */
     public function readJobs()

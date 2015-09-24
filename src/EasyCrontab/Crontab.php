@@ -26,17 +26,6 @@ class Crontab
     }
 
     /**
-     * Create new instance of Crontab with default dependencies
-     *
-     * @return Crontab
-     */
-    public static function create()
-    {
-        $fileManager = CrontabFileManager::create();
-        return new self($fileManager);
-    }
-
-    /**
      * Load job collection from crontab system file
      * Warning! Job list will be overwritten
      */
