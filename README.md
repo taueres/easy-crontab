@@ -29,7 +29,7 @@ The following examples will cover common use cases of EasyCrontab.
 
 ### Print command of the first job registered
 ```php
-$crontab = EasyCrontab\Crontab::create();
+$crontab = EasyCrontab\CrontabFactory::getCrontab();
 $jobs = $crontab->getJobs();
 echo $jobs[0]->getCommand();
 ```
@@ -44,14 +44,14 @@ $job->setMonth('*');
 $job->setDayOfWeek('*');
 $job->setCommand('php --version');
 
-$crontab = EasyCrontab\Crontab::create();
+$crontab = EasyCrontab\CrontabFactory::getCrontab();
 $crontab->addJob($job);
 $crontab->save();
 ```
 
 ### Edit job info
 ```php
-$crontab = EasyCrontab\Crontab::create();
+$crontab = EasyCrontab\CrontabFactory::getCrontab();
 $jobs = $crontab->getJobs();
 $jobs[0]->setDayOfWeek('3');
 $crontab->save();
@@ -59,7 +59,7 @@ $crontab->save();
 
 ### Remove job from crontab
 ```php
-$crontab = EasyCrontab\Crontab::create();
+$crontab = EasyCrontab\CrontabFactory::getCrontab();
 $jobs = $crontab->getJobs();
 $crontab->removeJob($jobs[0]);
 $crontab->save();

@@ -6,6 +6,7 @@ use EasyCrontab\Crontab;
 use EasyCrontab\Crontab\CrontabDumper;
 use EasyCrontab\Crontab\CrontabFileManager;
 use EasyCrontab\Crontab\CrontabParser;
+use EasyCrontab\CrontabFactory;
 use EasyCrontab\Job;
 use PHPUnit_Framework_TestCase;
 
@@ -75,6 +76,13 @@ class CrontabTest extends PHPUnit_Framework_TestCase
         $crontab->removeJob($jobs[0]);
 
         $crontab->save();
+    }
+
+    public function testFactory()
+    {
+        $crontab = CrontabFactory::getCrontab();
+
+        $this->assertInstanceOf(Crontab::class, $crontab);
     }
 
     /*
