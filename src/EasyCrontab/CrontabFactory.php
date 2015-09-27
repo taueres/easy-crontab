@@ -10,7 +10,8 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class CrontabFactory
 {
-    const RESOURCE_PATH = __DIR__ . '/Resources';
+    private static $RESOURCE_PATH = __DIR__ . '/Resources';
+    private static $RESOURCE_FILE = 'container_config.xml';
 
     /**
      * @var Crontab
@@ -36,8 +37,8 @@ class CrontabFactory
     private static function getContainer() {
 
         $container = new ContainerBuilder();
-        $loader = new XmlFileLoader($container, new FileLocator(self::RESOURCE_PATH));
-        $loader->load('container_config.xml');
+        $loader = new XmlFileLoader($container, new FileLocator(self::$RESOURCE_PATH));
+        $loader->load(self::$RESOURCE_FILE);
 
         return $container;
     }

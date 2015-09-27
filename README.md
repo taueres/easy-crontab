@@ -21,6 +21,14 @@ Add the following PSR-4 rules to your autoload system.
     "EasyCrontab\\Test\\": "vendor/easy-crontab/test"
 }
 ```
+Install EasyCrontab dependencies.
+```
+"require": {
+    "symfony/process": "^2.7",
+    "symfony/dependency-injection": "^2.7",
+    "symfony/config": "^2.7"
+}
+```
 
 ## Examples
 EasyCrontab is very easy to grasp.
